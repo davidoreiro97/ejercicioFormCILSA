@@ -8,7 +8,7 @@
 	--colorFondoForm: #ffffff75;
 	--colorBordeForm: black;
 	--colorLetrasForm: #280033;
-	--colorStrokeLetrasForm: rgb(190, 190, 190);
+	--colorStrokeLetrasForm: rgba(71, 71, 71, 0.537);
 	--formFontWeightLabel: 550;
 	--formBackgroundInputColor: rgba(255, 255, 255, 0.6);
 	--filterImagen: none;
