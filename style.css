@@ -8,7 +8,7 @@
 	--colorFondoForm: #ffffff75;
 	--colorBordeForm: black;
 	--colorLetrasForm: #280033;
-	--colorStrokeLetrasForm: rgba(71, 71, 71, 0.537);
+	--colorStrokeLetrasForm: rgba(54, 54, 54, 0.275);
 	--formFontWeightLabel: 550;
 	--formBackgroundInputColor: rgba(255, 255, 255, 0.6);
 	--filterImagen: none;
@@ -226,7 +226,9 @@ input[type="number"] {
 	padding-top: 60px;
 	font-size: 16px;
 }
-
+.formOKText {
+	text-align: center;
+}
 /* ------------- Estilos globales ------------- */
 .hidden {
 	display: none;
