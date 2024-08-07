@@ -1,0 +1,290 @@
+:root {
+	/* MODO CLARO */
+	--backgroundMenu: rgba(0, 0, 0, 0.5);
+	--backgroundBtn: #ffc500;
+	--letraColor: #280033;
+	--FontSize: 10px;
+	--menuFontWeight: 500;
+	--colorFondoForm: #ffffff75;
+	--colorBordeForm: black;
+	--colorLetrasForm: #280033;
+	--colorStrokeLetrasForm: rgb(190, 190, 190);
+	--formFontWeightLabel: 550;
+	--formBackgroundInputColor: rgba(255, 255, 255, 0.6);
+	--filterImagen: none;
+	--formFontWeightErrors: 550;
+	--colorTextoInvalido: red;
+}
+
+[data-theme="altoContraste"] {
+	/* MODO ALTO CONTRASTE */
+	--backgroundMenu: rgba(0, 0, 0, 0.8);
+	--backgroundBtn: black;
+	--letraColor: #fffb00;
+	--FontSize: 12px;
+	--menuFontWeight: 600;
+	--colorFondoForm: #000000;
+	--colorLetrasForm: #fffb00;
+	--colorStrokeLetrasForm: black;
+	--colorBordeForm: #fffb00;
+	--formFontWeightLabel: 650;
+	--formBackgroundInputColor: rgb(255, 255, 255);
+	--filterImagen: hue-rotate(0deg) invert(1) contrast(1) brightness(0.8);
+	--formFontWeightErrors: 650;
+	--colorTextoInvalido: white;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	min-height: 100vh;
+	position: relative;
+	font-family: "Montserrat";
+}
+
+.imagen_fondo {
+	position: fixed;
+	z-index: -10;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: var(--filterImagen);
+}
+/* ------------- Estilos de menú de preferencias ------------- */
+.preferencesMenu {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--backgroundMenu);
+	backdrop-filter: blur(10px);
+	box-shadow: 0px -8px 10px 15px var(--backgroundMenu);
+	font-size: var(--FontSize);
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+.opciones_menu_desplegable {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 10px;
+	font-size: calc(var(--FontSize) - 2px);
+	border: 1px solid var(--letraColor);
+	border-bottom: 0px;
+	background: var(--backgroundBtn);
+}
+.opciones_menu_desplegable__btn {
+	font-size: 1.6em;
+	padding: 10px;
+	color: var(--letraColor);
+	font-weight: var(--menuFontWeight);
+	border: 0px;
+	border-bottom: 1px solid var(--letraColor);
+	background-color: transparent;
+	cursor: pointer;
+	box-shadow: inset 0px 0px 2px 1px var(--letraColor);
+	filter: brightness(1);
+}
+.opciones_menu_desplegable__btn:hover {
+	box-shadow: inset 0px 2px 4px var(--colorLetrasForm);
+	transition: filter 0.3s linear;
+}
+/* ------------- Estilos del formulario ----------- */
+.formularioMainContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 100px 40px;
+	font-size: var(--FontSize);
+}
+
+.formulario {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	max-width: 600px;
+	background-color: var(--colorFondoForm);
+	padding: 40px 20px;
+	border-radius: 15px;
+	border: 10px double var(--colorBordeForm);
+	backdrop-filter: blur(40px);
+	box-shadow: 1px 1px 1px 1px black;
+	color: var(--colorLetrasForm);
+}
+
+.formulario__campo_container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 400px;
+}
+.formulario__campo_container__label {
+	font-size: 2em;
+	font-weight: var(--formFontWeightLabel);
+	text-shadow: 1px 1px var(--colorStrokeLetrasForm);
+}
+.formulario__campo_input {
+	width: 100%;
+	max-width: 400px;
+	min-height: 48px;
+	padding: 0.5em;
+	font-size: 1.8em;
+	border-radius: 8px;
+	border: 2px solid black;
+	background-color: var(--formBackgroundInputColor);
+}
+.formulario__campo_container__erroresContainer {
+	font-size: 1.5em;
+	font-weight: var(--formFontWeightErrors);
+}
+/* Fecha de nacimiento */
+.formulario__campo_container__fNac {
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.formulario__campo_container__diaMesAnioContainer {
+	display: flex;
+	justify-content: center;
+	padding-left: 10px;
+}
+
+.labelDivContainer__div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.labelDivContainer__div__input {
+	width: 90%;
+	padding: 0.5em;
+	font-size: 1.5em;
+	min-height: 42px;
+	border-radius: 8px;
+	border: 2px solid black;
+	background-color: var(--formBackgroundInputColor);
+	text-align: center;
+	color: black;
+}
+/* Sacando las flechas del input de tipo number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+.labelDivContainer__div__separador {
+	font-size: 2em;
+	font-weight: 700;
+	padding: 5px;
+}
+.labelDivContainer__label {
+	font-size: 1.6em;
+}
+/* SELECT */
+.select_input {
+	cursor: pointer;
+}
+.btn_1.sendBtn {
+	margin-top: 25px;
+	font-size: clamp(24px, var(--FontSize), 52px);
+}
+/* Cartel enviado */
+.formOK {
+	position: fixed;
+	z-index: 200;
+	width: 100%;
+	height: 100%;
+	background-color: var(--backgroundMenu);
+	color: greenyellow;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 60px;
+	font-size: 16px;
+}
+
+/* ------------- Estilos globales ------------- */
+.hidden {
+	display: none;
+}
+.invalido {
+	color: red;
+}
+.input_invalido {
+	border: 1px solid red;
+	color: var(--colorTextoInvalido);
+	background-color: rgba(255, 0, 0, 0.187);
+}
+
+.btn_1 {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	border: 2px solid var(--colorLetrasForm);
+	background: var(--backgroundBtn);
+	font-family: "Montserrat";
+	font-size: 2.2em;
+	text-decoration: none;
+	color: var(--colorLetrasForm);
+	font-weight: var(--menuFontWeight);
+	cursor: pointer;
+	box-shadow: inset 0px 0px 2px var(--colorLetrasForm);
+	filter: brightness(1) contrast(1) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6));
+	transition: filter 0.3s linear;
+}
+
+.btn_1:hover {
+	box-shadow: inset 0px 0px 3px var(--colorLetrasForm);
+	filter: brightness(1.1) contrast(1.1)
+		drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6));
+	transition: filter 0.3s linear;
+}
+
+/*  Mediaqueries */
+@media (max-width: 768px) {
+	.formularioMainContainer {
+		font-size: calc(var(--FontSize) - 2px);
+		padding: 80px 20px;
+		padding-top: 100px;
+	}
+}
+@media (max-width: 500px) {
+	.formularioMainContainer {
+		font-size: calc(var(--FontSize) - 3px);
+	}
+}
+@media (max-width: 375px) {
+	.formularioMainContainer {
+		font-size: calc(var(--FontSize) - 4px);
+	}
+	.formularioMainContainer {
+		font-size: calc(var(--FontSize) - 2px);
+		padding: 40px 10px;
+		padding-top: 100px;
+	}
+}
