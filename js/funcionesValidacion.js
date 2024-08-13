@@ -89,7 +89,7 @@ export function validarFechaNac(dia, mes, anio) {
 	if (!(mes > 0 && mes <= 12)) {
 		return false;
 	}
-	if (!(anio > 1900 && anio <= anio_hoy)) {
+	if (!(anio >= 1900 && anio <= anio_hoy)) {
 		//A menos que una persona de 124 años se quiera registrar o que algúna regla de negocio lo especifique.
 		//Tampoco se sabe cual es la edad mínima por lo que se establece a partir de ahora.
 		return false;
