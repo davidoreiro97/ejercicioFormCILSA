@@ -20,7 +20,7 @@
   - El un valor en el país de residencia es obligatorio.
 ## Flujos del caso de uso
 - ### Principal
--- 1. El sistema muestra el formulario de registro.
+  -- 1. El sistema muestra el formulario de registro.
 -- 2. El usuario ingresa su nombre.
 -- 3. El usuario ingresa su apellido.
 -- 4. El usuario ingresa su email.
