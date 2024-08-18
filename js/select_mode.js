@@ -4,7 +4,8 @@ let $normal_btn = document.getElementById("normal_btn");
 let $ciego_btn = document.getElementById("ciego_btn");
 let $modo_btn_menu = document.getElementById("modo_btn_menu");
 let $preferencesMenu = document.getElementById("preferencesMenu");
-const pagina_ciego = "/index_ciego.html";
+let base = "/ejercicioFormCILSA";
+const pagina_ciego = `${base}/index_ciego.html`;
 
 // const modo = localStorage.getItem("modo");
 // if (modo === "normal") {

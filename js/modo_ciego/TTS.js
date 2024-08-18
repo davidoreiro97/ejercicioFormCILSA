@@ -24,13 +24,16 @@ function speakMessage(message) {
 }
 
 async function audio_y_alerta_despues() {
-	await speakMessage(
-		"Saludos, bienvenido al modo ciego del formulario. A continuación se te pedira rellenar datos y se te guiará completamente en el proceso. Cuando esto termine escucharas una alerta."
-	);
-	const alerta = new Audio("../assets/mp3/sonido_alerta.mp3");
-	alerta.play();
+	// Esperar un breve retraso para asegurar que las voces estén cargadas
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+	try {
+		await speakMessage("Saludos, bienvenido al modo ciego del formulario...");
+		const alerta = new Audio("../assets/mp3/sonido_alerta.mp3");
+		alerta.play();
+	} catch (error) {
+		console.error("Error al reproducir el audio:", error);
+	}
 }
-
 window.speechSynthesis.onvoiceschanged = async () => {
 	// Asegurarse de que las voces estén cargadas
 	audio_y_alerta_despues();
