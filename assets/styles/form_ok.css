@@ -1,0 +1,20 @@
+.formOK {
+	position: fixed;
+	z-index: 200;
+	width: 100%;
+	height: 100%;
+	background-color: var(--backgroundMenu);
+	color: greenyellow;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 60px;
+	font-size: 16px;
+}
+.formOK.hidden {
+	display: none;
+}
+.formOKText {
+	text-align: center;
+}

@@ -1,0 +1,99 @@
+:root {
+	/* MODO CLARO */
+	--backgroundMenu: rgba(0, 0, 0, 0.5);
+	--backgroundBtn: #ffc500;
+	--letraColor: #280033;
+	--FontSize: 10px;
+	--menuFontWeight: 500;
+	--colorFondoForm: #ffffff75;
+	--colorBordeForm: black;
+	--colorLetrasForm: #280033;
+	--colorStrokeLetrasForm: rgba(54, 54, 54, 0.275);
+	--formFontWeightLabel: 550;
+	--formBackgroundInputColor: rgba(255, 255, 255, 0.6);
+	--filterImagen: none;
+	--formFontWeightErrors: 550;
+	--colorTextoInvalido: red;
+}
+
+[data-theme="altoContraste"] {
+	/* MODO ALTO CONTRASTE */
+	--backgroundMenu: rgba(0, 0, 0, 0.8);
+	--backgroundBtn: black;
+	--letraColor: #fffb00;
+	--FontSize: 12px;
+	--menuFontWeight: 600;
+	--colorFondoForm: #000000;
+	--colorLetrasForm: #fffb00;
+	--colorStrokeLetrasForm: black;
+	--colorBordeForm: #fffb00;
+	--formFontWeightLabel: 650;
+	--formBackgroundInputColor: rgb(255, 255, 255);
+	--filterImagen: hue-rotate(0deg) invert(1) contrast(1) brightness(0.8);
+	--formFontWeightErrors: 650;
+	--colorTextoInvalido: white;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	min-height: 100vh;
+	position: relative;
+	font-family: "Montserrat";
+}
+
+.imagen_fondo {
+	position: fixed;
+	z-index: -10;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	filter: var(--filterImagen);
+}
+
+.hidden {
+	display: none;
+}
+
+.invalido {
+	color: red;
+}
+.input_invalido {
+	border: 1px solid red;
+	color: var(--colorTextoInvalido);
+	background-color: rgba(255, 0, 0, 0.187);
+}
+
+.btn_1 {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	border: 2px solid var(--colorLetrasForm);
+	background: var(--backgroundBtn);
+	font-family: "Montserrat";
+	font-size: 2.2em;
+	text-decoration: none;
+	color: var(--colorLetrasForm);
+	font-weight: var(--menuFontWeight);
+	cursor: pointer;
+	box-shadow: inset 0px 0px 2px var(--colorLetrasForm);
+	filter: brightness(1) contrast(1) drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6));
+	transition: filter 0.3s linear;
+}
+
+.btn_1:hover {
+	box-shadow: inset 0px 0px 3px var(--colorLetrasForm);
+	filter: brightness(1.1) contrast(1.1)
+		drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6));
+	transition: filter 0.3s linear;
+}

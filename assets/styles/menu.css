@@ -1,0 +1,48 @@
+.preferencesMenu {
+	display: flex;
+	justify-content: flex-end;
+	gap: 18px;
+	width: 100%;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--backgroundMenu);
+	backdrop-filter: blur(10px);
+	box-shadow: 0px -8px 10px 15px var(--backgroundMenu);
+	font-size: var(--FontSize);
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+.preferencesMenu.hidden {
+	display: none;
+}
+.opciones_menu_desplegable {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 10px;
+	font-size: calc(var(--FontSize) - 2px);
+	border: 1px solid var(--letraColor);
+	border-bottom: 0px;
+	background: var(--backgroundBtn);
+}
+.opciones_menu_desplegable.hidden {
+	display: none;
+}
+.opciones_menu_desplegable__btn {
+	font-size: 1.6em;
+	padding: 10px;
+	color: var(--letraColor);
+	font-weight: var(--menuFontWeight);
+	border: 0px;
+	border-bottom: 1px solid var(--letraColor);
+	background-color: transparent;
+	cursor: pointer;
+	box-shadow: inset 0px 0px 2px 1px var(--letraColor);
+	filter: brightness(1);
+}
+.opciones_menu_desplegable__btn:hover {
+	box-shadow: inset 0px 2px 4px var(--colorLetrasForm);
+	transition: filter 0.3s linear;
+}

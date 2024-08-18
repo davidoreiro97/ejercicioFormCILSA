@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<link rel="stylesheet" href="style.css" />
-		<title>Formulario apunte inicial</title>
+		<link rel="stylesheet" href="./assets/styles/form.css" />
+		<link rel="stylesheet" href="./assets/styles/globals.css" />
+		<link rel="stylesheet" href="./assets/styles/menu.css" />
+		<link rel="stylesheet" href="./assets/styles/form_ok.css" />
+		<link rel="stylesheet" href="./assets/styles/mode_select.css" />
+		<title>Formulario CILSA</title>
 	</head>
 	<body>
 		<!-- No pongo la imagen como background para en el tema de alto contraste darle un filter -->
@@ -15,7 +18,11 @@
 			alt="Imagen de fondo"
 		/>
 
-		<header class="preferencesMenu">
+		<header class="preferencesMenu hidden" id="preferencesMenu">
+			<div>
+				<button class="btn_1" id="modo_btn_menu">MODO</button>
+			</div>
+
 			<div id="menuBtnYOptionsRef">
 				<button class="btn_1" id="menuBtn">TEMA</button>
 				<div class="opciones_menu_desplegable hidden" id="optionsMenuContainer">
@@ -35,7 +42,53 @@
 			<h2 class="formOKText">FORMULARIO ENVIADO CORRECTAMENTE</h2>
 			<button class="btn_1" id="buttonFormOK">OK</button>
 		</div>
-		<main class="formularioMainContainer">
+		<div id="cartel_elegir_modo" class="elegir_modo" tabindex="-1">
+			<div class="cartel_elegir_modo__ctn" tabindex="-1">
+				<h2 class="cartel_elegir_modo__ctn__h2" tabindex="-1">
+					SELECCIONE COMO QUIERE VER EL SITIO
+				</h2>
+				<div class="cartel_elegir_modo__ctn__ctnbtns" tabindex="-1">
+					<button
+						class="cartel_elegir_modo__ctn__ctnbtns__btn"
+						id="normal_btn"
+						tabindex="0"
+						aria-label="Elegir el modo normal, no es accesible."
+					>
+						<img
+							src="./assets/images/no_blind_icon.png"
+							alt=""
+							class="cartel_elegir_modo__ctn__ctnbtns__btn__img"
+							tabindex="-1"
+						/>
+						<span
+							class="cartel_elegir_modo__ctn__ctnbtns__btn__span"
+							tabindex="-1"
+							>NORMAL</span
+						>
+					</button>
+
+					<button
+						class="cartel_elegir_modo__ctn__ctnbtns__btn"
+						id="ciego_btn"
+						tabindex="1"
+						aria-label="Elegir el modo ciego, incluye lector de pantalla y un recorrido guiado."
+					>
+						<img
+							src="./assets/images/blind_icon.png"
+							alt=""
+							class="cartel_elegir_modo__ctn__ctnbtns__btn__img"
+							tabindex="-1"
+						/>
+						<span
+							class="cartel_elegir_modo__ctn__ctnbtns__btn__span"
+							tabindex="-1"
+							>CIEGO <br />(Incluye lector de pantalla)</span
+						>
+					</button>
+				</div>
+			</div>
+		</div>
+		<main id="main" class="formularioMainContainer hidden">
 			<form class="formulario" id="formulario">
 				<div class="formulario__campo_container">
 					<label
@@ -193,5 +246,6 @@
 		></script>
 		<script src="./js/insertOptions.js"></script>
 		<script src="./js/changeTheme.js"></script>
+		<script type="module" src="./js/select_mode.js"></script>
 	</body>
 </html>
