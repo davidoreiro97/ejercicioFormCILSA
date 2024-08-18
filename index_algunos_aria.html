@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="style.css" />
+		<title>Formulario apunte inicial</title>
+	</head>
+	<body>
+		<!-- No pongo la imagen como background para en el tema de alto contraste darle un filter -->
+		<img
+			class="imagen_fondo"
+			src="./assets/images/fondo.avif"
+			alt="Imagen de fondo"
+		/>
+
+		<header class="preferencesMenu">
+			<div id="menuBtnYOptionsRef">
+				<button class="btn_1" id="menuBtn" tabindex="-1">TEMA</button>
+				<div class="opciones_menu_desplegable hidden" id="optionsMenuContainer">
+					<button class="opciones_menu_desplegable__btn" id="temaClaroOnClick">
+						CLARO
+					</button>
+					<button
+						class="opciones_menu_desplegable__btn"
+						id="temaAltoContrasteOnClick"
+					>
+						ALTO CONTRASTE
+					</button>
+				</div>
+			</div>
+		</header>
+		<div class="formOK hidden" id="formOK">
+			<h2 class="formOKText">FORMULARIO ENVIADO CORRECTAMENTE</h2>
+			<button class="btn_1" id="buttonFormOK">OK</button>
+		</div>
+		<main class="formularioMainContainer">
+			<form class="formulario" id="formulario">
+				<div class="formulario__campo_container">
+					<label
+						class="formulario__campo_container__label"
+						id="nombre_label"
+						for="nombre"
+						>Nombre</label
+					>
+					<input
+						type="text"
+						name="nombre"
+						id="nombre"
+						class="formulario__campo_input"
+						tabindex="1"
+						aria-labelledby="nombre_desc"
+						aria-required="true"
+						aria-invalid="false"
+						aria-describedby="errores_nombre_container validacion_nombre_container"
+					/>
+					<span class="hidden" id="nombre_desc"
+						>Ingrese su nombre, este no debe contener números.</span
+					>
+					<div
+						id="errores_nombre_container"
+						class="formulario__campo_container__erroresContainer"
+						aria-live="assertive"
+						aria-atomic="true"
+					></div>
+					<div
+						id="validacion_nombre_container"
+						class="formulario__campo_container__validacionContainer hidden"
+						aria-live="assertive"
+						aria-atomic="true"
+					></div>
+				</div>
+
+				<div class="formulario__campo_container">
+					<label
+						class="formulario__campo_container__label"
+						id="apellido_label"
+						for="apellido"
+						>Apellido</label
+					>
+					<input
+						type="text"
+						name="apellido"
+						id="apellido"
+						class="formulario__campo_input"
+						tabindex="2"
+						aria-labelledby="apellido_desc"
+						aria-required="true"
+						aria-invalid="false"
+						aria-describedby="errores_apellido_container validacion_apellido_container"
+					/>
+					<span class="hidden" id="apellido_desc"
+						>Ingrese su apellido, este no debe contener números.</span
+					>
+					<div
+						id="errores_apellido_container"
+						class="formulario__campo_container__erroresContainer"
+					></div>
+					<div
+						id="validacion_apellido_container"
+						class="formulario__campo_container__validacionContainer hidden"
+						aria-live="assertive"
+						aria-atomic="true"
+					></div>
+				</div>
+
+				<div class="formulario__campo_container">
+					<label
+						class="formulario__campo_container__label"
+						id="email_label"
+						for="email"
+						>Email</label
+					>
+					<input
+						type="email"
+						name="email"
+						id="email"
+						class="formulario__campo_input"
+						tabindex="3"
+						aria-labelledby="email_desc"
+						aria-required="true"
+						aria-invalid="false"
+						aria-describedby="errores_email_container validacion_email_container"
+					/>
+					<span class="hidden" id="email_desc"
+						>Ingrese su email, se admiten solo los dominios : gmail, yahoo,
+						outlook, aol, aicloud, protonmail, zoho, gmx, yandex.</span
+					>
+					<div
+						id="errores_email_container"
+						class="formulario__campo_container__erroresContainer"
+						aria-live="assertive"
+						aria-atomic="true"
+					></div>
+					<div
+						id="validacion_email_container"
+						class="formulario__campo_container__validacionContainer hidden"
+						aria-live="assertive"
+						aria-atomic="true"
+					></div>
+				</div>
+
+				<div class="formulario__campo_container__fNac">
+					<p class="formulario__campo_container__label" id="fechaNac_label">
+						Fecha de nacimiento
+					</p>
+					<div class="formulario__campo_container__diaMesAnioContainer">
+						<div class="labelDivContainer">
+							<label
+								class="labelDivContainer__label"
+								id="diaNac_label"
+								for="diaNac"
+								>DÍA</label
+							>
+							<div class="labelDivContainer__div">
+								<input
+									class="labelDivContainer__div__input"
+									type="number"
+									name="diaNac"
+									id="diaNac"
+									tabindex="4"
+								/>
+								<span class="labelDivContainer__div__separador">/</span>
+							</div>
+						</div>
+
+						<div class="labelDivContainer">
+							<label
+								class="labelDivContainer__label"
+								id="mesNac_label"
+								for="mesNac"
+								>MES</label
+							>
+							<div class="labelDivContainer__div">
+								<input
+									class="labelDivContainer__div__input"
+									type="number"
+									name="mesNac"
+									id="mesNac"
+									tabindex="5"
+								/>
+								<span class="labelDivContainer__div__separador">/</span>
+							</div>
+						</div>
+
+						<div class="labelDivContainer">
+							<label
+								class="labelDivContainer__label"
+								id="anioNac_label"
+								for="anioNac"
+								>AÑO</label
+							>
+							<input
+								class="labelDivContainer__div__input"
+								type="number"
+								name="anioNac"
+								id="anioNac"
+								tabindex="6"
+							/>
+						</div>
+					</div>
+					<div
+						class="formulario__campo_container__erroresContainer"
+						id="errores_fechaNac_container"
+					></div>
+				</div>
+
+				<div class="formulario__campo_container__fNac">
+					<label
+						class="formulario__campo_container__label"
+						for="pais_residencia"
+						>País de residencia</label
+					>
+					<select
+						id="paises_select"
+						name="pais_residencia"
+						class="formulario__campo_input select_input"
+						tabindex="7"
+					>
+						<!-- Las opciones se insertan mediante JS (insertOptions.js). -->
+					</select>
+				</div>
+				<input
+					class="sendBtn btn_1"
+					type="submit"
+					value="Enviar"
+					tabindex="8"
+				/>
+			</form>
+		</main>
+
+		<script type="module" src="./js/index.js"></script>
+		<script
+			type="module"
+			src="./js/validacionCampos/validacionNombre.js"
+		></script>
+		<script
+			type="module"
+			src="./js/validacionCampos/validacionApellido.js"
+		></script>
+		<script
+			type="module"
+			src="./js/validacionCampos/validacionEmail.js"
+		></script>
+		<script
+			type="module"
+			src="./js/validacionCampos/validacionFechaNac.js"
+		></script>
+		<script src="./js/insertOptions.js"></script>
+		<script src="./js/changeTheme.js"></script>
+	</body>
+</html>
