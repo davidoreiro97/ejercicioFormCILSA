@@ -2,7 +2,7 @@
 const $optionPaises = document.getElementById("paises_select");
 ////Un fragment para no modificar el DOM por cada uno de los paises.
 const $fragmento = document.createDocumentFragment();
-const paises = [
+export const paises = [
 	"Afganistán",
 	"Albania",
 	"Alemania",
@@ -209,4 +209,6 @@ paises.forEach((pais) => {
 	}
 	$fragmento.appendChild(opcion);
 });
-$optionPaises.appendChild($fragmento);
+if ($optionPaises) {
+	$optionPaises.appendChild($fragmento);
+}

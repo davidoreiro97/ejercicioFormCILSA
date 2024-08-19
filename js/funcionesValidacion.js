@@ -1,6 +1,7 @@
+import { paises } from "./insertOptions.js";
 export function validarSoloLetras(cadena) {
 	//Devuelve true si son solo letras.
-	const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü]+$/;
+	const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/;
 	return regex.test(cadena);
 }
 export function validarNoVacio(cadena) {
@@ -124,6 +125,17 @@ export function validarFechaNac(dia, mes, anio) {
 			}
 		}
 		//Si el año no es menor o igual al actual devolvemos false (Aunque más arriba ya se comprobo esto.)
+		return false;
+	}
+}
+
+export function es_pais_valido(pais) {
+	let pais_existe = paises.some(
+		(nombre_pais) => nombre_pais.toLowerCase() === pais.toLowerCase()
+	);
+	if (pais_existe) {
+		return true;
+	} else {
 		return false;
 	}
 }
