@@ -9,7 +9,8 @@ import mensajes from "./mensajes_voz.js";
 let hay_lector_texto = false;
 let voces = [];
 let voz_esp;
-const sonido_senial = new Audio("../../assets/mp3/sonido_alerta.mp3");
+const baseurl = "/ejercicioFormCILSA";
+const sonido_senial = new Audio(`${baseurl}/assets/mp3/sonido_alerta.mp3`);
 let datos_form = {
 	nombre: "",
 	apellido: "",
@@ -212,7 +213,6 @@ document.addEventListener("keydown", (e) => {
 			clearInterval(interval_welcome_msg);
 		}
 		if (seccion_actual === seccion["bienvenida"]) {
-			bloquear_cambio_seccion = true;
 			avanzar_seccion();
 		}
 		if (bloquear_cambio_seccion && seccion_actual === seccion["nombre"]) {
