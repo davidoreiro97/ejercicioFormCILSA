@@ -5,6 +5,7 @@ let $ciego_btn = document.getElementById("ciego_btn");
 let $modo_btn_menu = document.getElementById("modo_btn_menu");
 let $preferencesMenu = document.getElementById("preferencesMenu");
 let base = "/ejercicioFormCILSA";
+//RECORDAR REMOVER /ejercicioFormCILSA/
 const pagina_ciego = `${base}/index_ciego.html`;
 
 // const modo = localStorage.getItem("modo");

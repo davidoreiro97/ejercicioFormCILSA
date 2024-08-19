@@ -9,6 +9,7 @@ import mensajes from "./mensajes_voz.js";
 let hay_lector_texto = false;
 let voces = [];
 let voz_esp;
+//RECORDAR REMOVER /ejercicioFormCILSA/
 const sonido_senial = new Audio(
 	`/ejercicioFormCILSA/assets/mp3/sonido_alerta.mp3`
 );
