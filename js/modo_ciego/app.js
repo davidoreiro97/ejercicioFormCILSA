@@ -214,6 +214,7 @@ document.addEventListener("keydown", (e) => {
 		}
 		if (seccion_actual === seccion["bienvenida"]) {
 			avanzar_seccion();
+			clearInterval(interval_welcome_msg);
 		}
 		if (bloquear_cambio_seccion && seccion_actual === seccion["nombre"]) {
 			bloquear_cambio_seccion = true;
