@@ -9,8 +9,9 @@ import mensajes from "./mensajes_voz.js";
 let hay_lector_texto = false;
 let voces = [];
 let voz_esp;
-const baseurl = "/ejercicioFormCILSA";
-const sonido_senial = new Audio(`${baseurl}/assets/mp3/sonido_alerta.mp3`);
+const sonido_senial = new Audio(
+	`/ejercicioFormCILSA/assets/mp3/sonido_alerta.mp3`
+);
 let datos_form = {
 	nombre: "",
 	apellido: "",
