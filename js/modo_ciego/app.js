@@ -58,7 +58,7 @@ const hablar_y_alerta = (mensaje) => {
 	msg.voice = voz_esp;
 	msg.pitch = 0.9;
 	speechSynthesis.speak(msg);
-	bloquear_cambio_seccion = true;
+	// bloquear_cambio_seccion = true;
 	msg.onend = () => {
 		sonido_senial.play();
 		$input_user.value = "";
