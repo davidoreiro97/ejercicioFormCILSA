@@ -570,6 +570,7 @@ $input_user.addEventListener("keydown", (e) => {
 });
 
 $input_confirmacion.addEventListener("keydown", (e) => {
+	clearInterval(interval_welcome_msg);
 	//Este event listener se usa para escuchar los eventos de enter o escape para confirmar o rechazar el campo y avanzar de seccion.
 	//Nombre
 	if (e.key === "Enter" && seccion_actual === seccion["nombre"]) {
