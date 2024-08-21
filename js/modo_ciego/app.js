@@ -97,8 +97,6 @@ export const iniciar_seccion = () => {
 
 		case seccion["nombre"]:
 			hablar_y_alerta(mensajes["ingresar_nombre"]);
-			bloquear_cambio_seccion = true;
-
 			break;
 
 		case seccion["apellido"]:
@@ -146,7 +144,6 @@ export const iniciar_seccion = () => {
 		case seccion["agradecimiento_final"]:
 			hablar(mensajes["agradecimiento_final"]);
 			bloquear_cambio_seccion = true;
-
 			break;
 
 		default:
