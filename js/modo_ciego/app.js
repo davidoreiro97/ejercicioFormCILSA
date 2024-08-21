@@ -39,11 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			(voz) =>
 				voz.lang === "es-ES" || voz.lang === "es-MX" || voz.lang === "es-US"
 		);
-		hablar(mensajes["bienvenida"]);
-		interval_welcome_msg = setInterval(() => {
-			hablar(mensajes["bienvenida"]);
-		}, 25000);
 	};
+
+	setTimeout(() => (voz_esp ? hablar(mensajes["bienvenida"]) : ""), 2000);
+	interval_welcome_msg = setInterval(() => {
+		hablar(mensajes["bienvenida"]);
+	}, 25000);
 });
 
 const hablar = (mensaje) => {
@@ -96,38 +97,56 @@ export const iniciar_seccion = () => {
 
 		case seccion["nombre"]:
 			hablar_y_alerta(mensajes["ingresar_nombre"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["apellido"]:
 			hablar_y_alerta(mensajes["ingresar_apellido"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["email"]:
 			hablar_y_alerta(mensajes["ingresar_email"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["dia_nacimiento"]:
 			hablar_y_alerta(mensajes["ingresar_dia_nac"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["mes_nacimiento"]:
 			hablar_y_alerta(mensajes["ingresar_mes_nac"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["anio_nacimiento"]:
 			hablar_y_alerta(mensajes["ingresar_anio_nac"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["pais_residencia"]:
 			hablar_y_alerta(mensajes["ingresar_pais_residencia"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["confirmar_form"]:
 			hablar(mensajes["confirmar_formulario"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		case seccion["agradecimiento_final"]:
 			hablar(mensajes["agradecimiento_final"]);
+			bloquear_cambio_seccion = true;
+
 			break;
 
 		default:
@@ -211,16 +230,12 @@ document.addEventListener("keydown", (e) => {
 	//Este event listener se utiliza para la navegación entre secciones.
 	if (e.key === "ArrowRight") {
 		speechSynthesis.cancel();
-		if (seccion_actual !== seccion["bienvenida"]) {
-			clearInterval(interval_welcome_msg);
-		}
 		if (seccion_actual === seccion["bienvenida"]) {
 			avanzar_seccion();
-			bloquear_cambio_seccion = true;
 			clearInterval(interval_welcome_msg);
 		}
 		if (bloquear_cambio_seccion && seccion_actual === seccion["nombre"]) {
-			bloquear_cambio_seccion = true;
+			clearInterval(interval_welcome_msg);
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese un nombre y presione enter.`
 			);
@@ -231,7 +246,6 @@ document.addEventListener("keydown", (e) => {
 			}
 		}
 		if (bloquear_cambio_seccion && seccion_actual === seccion["apellido"]) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese un apellido y presione enter.`
 			);
@@ -242,7 +256,6 @@ document.addEventListener("keydown", (e) => {
 			}
 		}
 		if (bloquear_cambio_seccion && seccion_actual === seccion["email"]) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese un email y presione enter.`
 			);
@@ -257,7 +270,6 @@ document.addEventListener("keydown", (e) => {
 			bloquear_cambio_seccion &&
 			seccion_actual === seccion["dia_nacimiento"]
 		) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese su día de nacimiento y presione enter.`
 			);
@@ -271,7 +283,6 @@ document.addEventListener("keydown", (e) => {
 			bloquear_cambio_seccion &&
 			seccion_actual === seccion["mes_nacimiento"]
 		) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese su mes de nacimiento y presione enter.`
 			);
@@ -286,7 +297,6 @@ document.addEventListener("keydown", (e) => {
 			bloquear_cambio_seccion &&
 			seccion_actual === seccion["anio_nacimiento"]
 		) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese su año de nacimiento y presione enter.`
 			);
@@ -302,7 +312,6 @@ document.addEventListener("keydown", (e) => {
 			bloquear_cambio_seccion &&
 			seccion_actual === seccion["pais_residencia"]
 		) {
-			bloquear_cambio_seccion = true;
 			hablar(
 				`No puede avanzar a la siguiente sección hasta que ingrese su país de residencia y presione enter.`
 			);
@@ -312,6 +321,7 @@ document.addEventListener("keydown", (e) => {
 				hablar(`El país de residencia escrito es ${$input_user.value.trim()}`);
 			}
 		}
+		bloquear_cambio_seccion = true;
 		//pas resid fin
 	}
 	// if (e.key === "ArrowLeft") {
@@ -323,6 +333,7 @@ document.addEventListener("keydown", (e) => {
 	// 	bloquear_cambio_seccion = false;
 	// }
 });
+
 $input_user.addEventListener("keydown", (e) => {
 	//Este event listener se utiliza para confirmar por primera vez el input.
 	let error = false;
