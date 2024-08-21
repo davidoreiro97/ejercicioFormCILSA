@@ -6,7 +6,6 @@ import {
 	es_pais_valido,
 } from "../funcionesValidacion.js";
 import mensajes from "./mensajes_voz.js";
-let hay_lector_texto = false;
 let voces = [];
 let voz_esp;
 //RECORDAR REMOVER /ejercicioFormCILSA/
@@ -27,11 +26,10 @@ let bloquear_cambio_seccion = false;
 let $input_user = document.getElementById("input_user");
 let $input_confirmacion = document.getElementById("input_confirmacion");
 document.addEventListener("DOMContentLoaded", () => {
-	if ("speechSynthesis" in window) {
-		hay_lector_texto = true;
-	} else {
-		hay_lector_texto = false;
-	}
+	// A veces se bugea y queda cargado el intervalo
+	speechSynthesis.cancel();
+	clearInterval(interval_welcome_msg);
+
 	window.speechSynthesis.onvoiceschanged = () => {
 		//onvoiceschanged asegura que las voces estén cargadas a iniciar.
 		voces = speechSynthesis.getVoices();
